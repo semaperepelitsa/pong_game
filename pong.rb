@@ -36,6 +36,10 @@ class Ball
     @image.height
   end
 
+  def paddle
+    game.paddle
+  end
+
   def render(container, graphics)
     @image.draw(@x, @y)
   end
@@ -50,6 +54,12 @@ class Ball
 
     if @y > container.height
       game.reset
+    end
+
+    if @y + height > paddle.y and
+       @x < paddle.x + paddle.width and
+       @x + width > paddle.x
+      @angle = (@angle + 80 + rand(20) - 10) % 360
     end
   end
 
@@ -97,6 +107,8 @@ end
 
 
 class PongGame < BasicGame
+  attr_reader :ball, :paddle
+
   def render(container, graphics)
     @bg.draw(0, 0)
     @ball.render(container, graphics)
@@ -120,12 +132,6 @@ class PongGame < BasicGame
     # if @ball_x >= @paddle_x and @ball_x <= (@paddle_x + @paddle.width) and @ball_y.round >= (400 - @ball.height)
     #   @ball_angle = (@ball_angle + 90) % 360
     # end
-
-    if  @ball.y + @ball.height > @paddle.y and
-        @ball.x < @paddle.x + @paddle.width and
-        @ball.x + @ball.width > @paddle.x
-      @ball.angle = (@ball.angle + 80 + rand(20) - 10) % 360
-    end
 
   end
 
