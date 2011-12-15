@@ -12,7 +12,6 @@ java_import org.newdawn.slick.Input
 java_import org.newdawn.slick.SlickException
 java_import org.newdawn.slick.AppGameContainer
 
-require "rubygems"
 require "pong_game"
 
 app = AppGameContainer.new(PongGame.new('RubyPong'))
