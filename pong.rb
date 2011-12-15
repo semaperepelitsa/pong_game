@@ -128,11 +128,6 @@ class PongGame < BasicGame
 
     @ball.update(container, delta)
     @paddle.update(container, delta)
-
-    # if @ball_x >= @paddle_x and @ball_x <= (@paddle_x + @paddle.width) and @ball_y.round >= (400 - @ball.height)
-    #   @ball_angle = (@ball_angle + 90) % 360
-    # end
-
   end
 
   def reset
