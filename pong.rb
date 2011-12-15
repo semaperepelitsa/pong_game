@@ -21,14 +21,14 @@ class PongGame < BasicGame
   end
 
   def init(container)
-    @bg = Image.new('bg.png')
+    @bg = Image.new('media/bg.png')
 
-    @ball = Image.new('ball.png')
+    @ball = Image.new('media/ball.png')
     @ball_x = 200
     @ball_y = 200
     @ball_angle = 45
 
-    @paddle = Image.new('paddle.png')
+    @paddle = Image.new('media/paddle.png')
     @paddle_x = 200
     @paddle_y = 400
   end
