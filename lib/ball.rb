@@ -1,32 +1,13 @@
-class Ball
-  attr_accessor :x, :y, :angle, :game
+require "game_object"
 
-  def initialize(game)
-    @image = Image.new('media/ball.png')
-    @game = game
-    reset
-  end
+class Ball < GameObject
+  attr_accessor :angle
+  def_delegators :game, :paddle
 
   def reset
     @x = 200
     @y = 200
     @angle = 45
-  end
-
-  def width
-    @image.width
-  end
-
-  def height
-    @image.height
-  end
-
-  def paddle
-    game.paddle
-  end
-
-  def render(container, graphics)
-    @image.draw(@x, @y)
   end
 
   def update(container, delta)

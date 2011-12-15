@@ -1,27 +1,9 @@
-class Paddle
-  attr_reader :x, :y, :angle, :game
+require "game_object"
 
-  def initialize(game)
-    @image = Image.new('media/paddle.png')
-    @game = game
-    reset
-  end
-
+class Paddle < GameObject
   def reset
     @x = 200
     @y = 400
-  end
-
-  def width
-    @image.width
-  end
-
-  def height
-    @image.height
-  end
-
-  def render(container, graphics)
-    @image.draw(@x, @y)
   end
 
   def update(container, delta)
